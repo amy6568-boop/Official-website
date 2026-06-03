@@ -370,7 +370,7 @@ nav.scrolled {
 }
 @media (max-width: 768px) { #concept { grid-template-columns: 1fr 1fr !important; gap:3vw; padding: 5vh 4vw; } }
 .concept-img {
-  aspect-ratio: 3/4; object-fit: cover; width: 100%;
+  aspect-ratio: 4/5; object-fit: cover; width: 100%; min-height: 400px;
   filter: brightness(0.85);
   transition: filter 0.7s, transform 0.9s var(--ease-out);
 }
@@ -856,27 +856,97 @@ footer {
 
 <!-- ══ CONCEPT ══ -->
 <section id="concept">
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start;max-width:1380px;margin:0 auto;padding:10vh 5vw">
-    <div style="max-width:100%">
-      <img src="./images/entrance.jpg" alt="森安邦正門入口" class="concept-img reveal">
-    </div>
-    <div class="concept-text reveal d2">
-      <div class="section-label">Building Concept</div>
-      <h2 class="h-display">讓建築<br>回到生活<br>本身</h2>
-      <blockquote class="concept-quote">
-        安定感不是設計的結果，<br>而是設計的出發點。
-      </blockquote>
-      <p class="body-text">
+  <style>
+    #concept {
+      position: relative;
+      overflow: hidden;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+    .concept-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./images/entrance.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.35);
+      transform: scale(1.03);
+      transition: transform 10s linear;
+    }
+    #concept:hover .concept-bg { transform: scale(1.0); }
+    .concept-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(9,9,10,0.5) 0%,
+        rgba(9,9,10,0.2) 50%,
+        rgba(9,9,10,0.7) 100%
+      );
+    }
+    .concept-inner {
+      position: relative; z-index: 2;
+      max-width: 1380px; width: 100%;
+      margin: 0 auto;
+      padding: 10vh 5vw;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.5rem, 3vw, 4rem);
+      align-items: start;
+    }
+    .concept-v-title {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: var(--ff-disp);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      letter-spacing: 0.15em;
+      color: var(--white);
+      line-height: 1.0;
+      border-right: 1px solid var(--gold);
+      padding-right: clamp(1rem, 2vw, 2rem);
+      white-space: nowrap;
+    }
+    .concept-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 680px;
+    }
+    .concept-right .concept-v2-quote {
+      font-family: var(--ff-disp);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--cream);
+      line-height: 1.9;
+      letter-spacing: 0.06em;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(200,164,90,0.3);
+    }
+    .concept-right .concept-v2-body {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      color: var(--stone);
+      line-height: 2.4;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 600px) {
+      .concept-inner { grid-template-columns: auto 1fr; gap: 1.2rem; padding: 8vh 5vw; }
+      .concept-v-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+    }
+  </style>
+  <div class="concept-bg reveal"></div>
+  <div class="concept-overlay"></div>
+  <div class="concept-inner reveal">
+    <div class="concept-v-title">讓建築回到生活本身</div>
+    <div class="concept-right">
+      <div class="section-label" style="margin-bottom:0">Building Concept</div>
+      <p class="concept-v2-quote">安定感不是設計的結果，而是設計的出發點。</p>
+      <p class="concept-v2-body">
         森安邦以低彩度建築語言、精準線條與留白尺度，<br>
         重新定義現代居住空間的本質。<br><br>
         每一層四戶皆坐落四角，雙面開窗，<br>
         讓自然採光與通風成為每日生活的底色。
       </p>
-      <span class="gold-rule"></span>
-      <div class="legal-notice">
-        <strong>使用執照</strong>：2024年07月14日取得<br>
-        台南市南區中華西路一段48號 / 集合式住宅大樓
-      </div>
     </div>
   </div>
 </section>
