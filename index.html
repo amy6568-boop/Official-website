@@ -349,7 +349,7 @@ nav.scrolled {
 }
 .h-display {
   font-family: var(--ff-disp); font-weight: 300;
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-size: clamp(1.5rem, 4vw, 4.2rem);
   line-height: 1.1; letter-spacing: 0.04em; color: var(--white);
 }
 .body-text {
@@ -368,9 +368,10 @@ nav.scrolled {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 7vw; align-items: center;
 }
-@media (max-width: 768px) { #concept { grid-template-columns: 1fr; padding: 9vh 6vw; } }
+@media (max-width: 600px) { #concept { grid-template-columns: 1fr 1fr; gap:3vw; padding: 6vh 4vw; } }
+@media (max-width: 400px) { #concept { grid-template-columns: 1fr; padding: 6vh 5vw; } }
 .concept-img {
-  aspect-ratio: 3/4; object-fit: cover; width: 100%;
+  aspect-ratio: 4/5; object-fit: cover; width: 100%;
   filter: brightness(0.85);
   transition: filter 0.7s, transform 0.9s var(--ease-out);
 }
@@ -378,7 +379,7 @@ nav.scrolled {
 .concept-text { display: flex; flex-direction: column; gap: 2rem; }
 blockquote.concept-quote {
   font-family: var(--ff-disp); font-style: italic;
-  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.75rem);
   color: var(--cream); line-height: 1.75;
   letter-spacing: 0.05em;
   padding-left: 1.5rem;
@@ -781,7 +782,7 @@ footer {
 <nav id="nav">
   <div class="nav-logo">
     <a href="#top">
-      <img src="./images/logo-gold.png" alt="森安邦" style="height:38px;width:auto;display:block;filter:brightness(1)">
+      <img src="./images/logo-gold.png" alt="森安邦" style="height:32px;width:auto;max-width:160px;display:block">
     </a>
   </div>
   <ul class="nav-links">
@@ -821,7 +822,7 @@ footer {
     </div>
     <div class="hero-content">
       <span class="hero-eyebrow">台南市南區 · 精品集合住宅 · 2024 年使照取得</span>
-      <img src="./images/logo-white.png" alt="森安邦" class="hero-title" style="height:clamp(80px,14vw,180px);width:auto;display:block;filter:drop-shadow(0 2px 24px rgba(0,0,0,0.4))">
+      <img src="./images/logo-white.png" alt="森安邦" class="hero-title" style="height:clamp(60px,8vw,120px);width:auto;max-width:min(600px,70vw);display:block;filter:drop-shadow(0 2px 24px rgba(0,0,0,0.4))">
       <span class="hero-rule"></span>
       <span class="hero-tagline">在城市與生活之間，<br>留下剛剛好的安靜。</span>
       <span class="hero-address">台南市南區中華西路一段48號</span>
@@ -856,7 +857,7 @@ footer {
 
 <!-- ══ CONCEPT ══ -->
 <section id="concept">
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;max-width:1380px;margin:0 auto;padding:14vh 5vw">
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;max-width:1380px;margin:0 auto;padding:10vh 5vw">
     <div style="max-width:100%">
       <img src="./images/logo-wall.jpg" alt="森安邦LOGO景牆" class="concept-img reveal">
     </div>
