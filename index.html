@@ -349,11 +349,11 @@ nav.scrolled {
 }
 .h-display {
   font-family: var(--ff-disp); font-weight: 300;
-  font-size: clamp(1.5rem, 4vw, 4.2rem);
+  font-size: clamp(1.2rem, 3.5vw, 4.2rem);
   line-height: 1.1; letter-spacing: 0.04em; color: var(--white);
 }
 .body-text {
-  font-size: 0.92rem; color: var(--stone);
+  font-size: clamp(0.72rem, 2vw, 0.92rem); color: var(--stone);
   line-height: 2.3; letter-spacing: 0.07em;
 }
 .gold-rule { display: block; width: 1px; height: 56px; background: var(--gold); margin: 2rem 0; }
@@ -368,10 +368,9 @@ nav.scrolled {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 7vw; align-items: center;
 }
-@media (max-width: 600px) { #concept { grid-template-columns: 1fr 1fr; gap:3vw; padding: 6vh 4vw; } }
-@media (max-width: 400px) { #concept { grid-template-columns: 1fr; padding: 6vh 5vw; } }
+@media (max-width: 768px) { #concept { grid-template-columns: 1fr 1fr !important; gap:3vw; padding: 5vh 4vw; } }
 .concept-img {
-  aspect-ratio: 4/5; object-fit: cover; width: 100%;
+  aspect-ratio: 3/4; object-fit: cover; width: 100%;
   filter: brightness(0.85);
   transition: filter 0.7s, transform 0.9s var(--ease-out);
 }
@@ -379,7 +378,7 @@ nav.scrolled {
 .concept-text { display: flex; flex-direction: column; gap: 2rem; }
 blockquote.concept-quote {
   font-family: var(--ff-disp); font-style: italic;
-  font-size: clamp(0.95rem, 2.2vw, 1.75rem);
+  font-size: clamp(0.82rem, 1.8vw, 1.75rem);
   color: var(--cream); line-height: 1.75;
   letter-spacing: 0.05em;
   padding-left: 1.5rem;
@@ -838,28 +837,28 @@ footer {
     <div class="spec-label">地上總樓高</div>
   </div>
   <div class="spec-item reveal d2">
-    <div class="spec-num">3B2B<span class="spec-unit"></span></div>
-    <div class="spec-label">全戶 3房2廳2衛</div>
+    <div class="spec-num">3<span class="spec-unit">房型</span></div>
+    <div class="spec-label">3房2廳2衛2陽台</div>
   </div>
   <div class="spec-item reveal d3">
-    <div class="spec-num">34.57<span class="spec-unit">%</span></div>
+    <div class="spec-num">34.54<span class="spec-unit">%</span></div>
     <div class="spec-label">公設比</div>
   </div>
   <div class="spec-item reveal d4">
     <div class="spec-num">4<span class="spec-unit">戶/層</span></div>
-    <div class="spec-label">每層精品戶數</div>
+    <div class="spec-label">每戶皆雙面採光</div>
   </div>
   <div class="spec-item reveal d4">
-    <div class="spec-num">1<span class="spec-unit">位/戶</span></div>
+    <div class="spec-num">1<span class="spec-unit">平面車位</span></div>
     <div class="spec-label">一戶一平面車位</div>
   </div>
 </div>
 
 <!-- ══ CONCEPT ══ -->
 <section id="concept">
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;max-width:1380px;margin:0 auto;padding:10vh 5vw">
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:start;max-width:1380px;margin:0 auto;padding:10vh 5vw">
     <div style="max-width:100%">
-      <img src="./images/logo-wall.jpg" alt="森安邦LOGO景牆" class="concept-img reveal">
+      <img src="./images/entrance.jpg" alt="森安邦正門入口" class="concept-img reveal">
     </div>
     <div class="concept-text reveal d2">
       <div class="section-label">Building Concept</div>
