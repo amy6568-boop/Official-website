@@ -1424,27 +1424,32 @@ footer {
 </section>
 
 <!-- ══ LOCATION ══ -->
-<section id="location">
-  <div class="location-inner">
-    <div class="reveal">
-      <div class="section-label">Location</div>
-      <h2 class="h-display">城市與生活<br>保持剛剛好<br>的距離</h2>
-      <span class="gold-rule"></span>
-      <p class="body-text">台南市南區中華西路一段48號<br>鄰近主要生活機能與交通動線，<br>在便利與安靜之間找到平衡。</p>
-      <div class="transport-list">
+<section id="location" style="background:var(--dark);border-top:1px solid var(--border);padding:12vh 0">
+  <div style="max-width:1380px;margin:0 auto;padding:0 5vw;margin-bottom:4rem" class="reveal">
+    <div class="section-label">Location</div>
+    <h2 class="h-display">城市與生活<br>保持剛剛好的距離</h2>
+  </div>
+  <!-- 電影排版：左圖右文 -->
+  <div style="display:grid;grid-template-columns:1.2fr 0.8fr;min-height:60vh" class="reveal">
+    <!-- 左：全圖 -->
+    <div style="overflow:hidden;position:relative;min-height:420px">
+      <img src="./images/location-map.jpg" alt="森安邦周邊地圖" loading="lazy"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.9)">
+    </div>
+    <!-- 右：說明文字 -->
+    <div style="background:var(--dark);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:clamp(2.5rem,5vw,6rem);gap:2rem">
+      <p class="body-text">
+        台南市南區中華西路一段48號<br>
+        鄰近主要生活機能與交通動線，<br>
+        在便利與安靜之間找到平衡。
+      </p>
+      <span style="display:block;width:40px;height:1px;background:var(--gold)"></span>
+      <div class="transport-list" style="margin-top:0">
         <div class="transport-item"><span class="dot"></span>中華西路主幹道直接聯86快速道路</div>
         <div class="transport-item"><span class="dot"></span>鄰近安平與中西區、誠品生活圈</div>
         <div class="transport-item"><span class="dot"></span>周邊完整生活機能：學校、美食、商圈</div>
         <div class="transport-item"><span class="dot"></span>南區核心地段，綠地、觀光、生活、交通左右逢源</div>
       </div>
-    </div>
-    <div class="location-map reveal d2">
-      <iframe
-        title="森安邦地圖"
-        src="./images/location-map.jpg"
-        allowfullscreen loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
     </div>
   </div>
 </section>
