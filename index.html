@@ -728,12 +728,17 @@ footer {
 .fab a {
   width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.56rem; letter-spacing: 0.12em;
-  font-weight: 400; transition: transform 0.3s var(--ease-out);
+  border-radius: 50%;
+  clip-path: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  text-decoration: none;
 }
-.fab a:hover { transform: scale(1.12); }
-.fab-line { background: #06C755; color: #fff; clip-path: polygon(8% 0%,100% 0%,92% 100%,0% 100%); }
-.fab-tel  { background: var(--gold); color: var(--black); clip-path: polygon(8% 0%,100% 0%,92% 100%,0% 100%); }
+.fab a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(0,0,0,0.5); }
+.fab a svg { display: block; flex-shrink: 0; }
+.fab-line { background: #06C755; }
+.fab-tel  { background: var(--gold); }
+.fab-fb   { background: #1877F2; }
 
 /* ═══════════════════════════════════════
    PROGRESS BAR (top of page)
@@ -793,7 +798,7 @@ footer {
     <li><a href="#location">生活地段</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:1rem">
-    <a href="YOUR_GOOGLE_FORM_URL" target="_blank" class="nav-cta">預約賞屋</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEQjX3HtgBTObrLIdUj-tN1IWOiIx4HRirMz8NEhfUEwMZmg/viewform?usp=publish-editor" target="_blank" class="nav-cta">預約賞屋</a>
     <button class="hamburger" id="hamburger" aria-label="選單">
       <span id="hb1"></span><span id="hb2"></span><span id="hb3"></span>
     </button>
@@ -809,7 +814,7 @@ footer {
   <a href="#gallery" onclick="closeMenu()">空間賞析</a>
   <a href="#features" onclick="closeMenu()">建案特色</a>
   <a href="#location" onclick="closeMenu()">生活地段</a>
-  <a href="YOUR_GOOGLE_FORM_URL" target="_blank" style="color:var(--gold);font-size:1.4rem;letter-spacing:0.2em" onclick="closeMenu()">預約賞屋</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEQjX3HtgBTObrLIdUj-tN1IWOiIx4HRirMz8NEhfUEwMZmg/viewform?usp=publish-editor" target="_blank" style="color:var(--gold);font-size:1.4rem;letter-spacing:0.2em" onclick="closeMenu()">預約賞屋</a>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -1407,7 +1412,7 @@ footer {
       親自走進森安邦，感受安靜而純粹的居住氛圍。
     </p>
     <div class="cta-btns">
-      <a href="YOUR_GOOGLE_FORM_URL" target="_blank" class="btn-primary">立即預約賞屋</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEQjX3HtgBTObrLIdUj-tN1IWOiIx4HRirMz8NEhfUEwMZmg/viewform?usp=publish-editor" target="_blank" class="btn-primary">立即預約賞屋</a>
       <a href="https://line.me/ti/p/@205btexa" target="_blank" class="btn-ghost">LINE 即時諮詢</a>
     </div>
   </div>
@@ -1458,7 +1463,7 @@ footer {
         <a href="https://line.me/ti/p/@205btexa" target="_blank">LINE 線上諮詢 →</a>
       </span>
       <span class="footer-col-item">
-        <a href="YOUR_GOOGLE_FORM_URL" target="_blank">預約賞屋 →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEQjX3HtgBTObrLIdUj-tN1IWOiIx4HRirMz8NEhfUEwMZmg/viewform?usp=publish-editor" target="_blank">預約賞屋 →</a>
       </span>
     </div>
     <div>
@@ -1480,7 +1485,16 @@ footer {
 <!-- ══ FLOATING ACTION BUTTONS ══ -->
 <div class="fab">
   <a href="https://line.me/ti/p/@205btexa" target="_blank" class="fab-line" aria-label="LINE諮詢">LINE</a>
-  <a href="tel:0262630956" class="fab-tel" aria-label="電話">TEL</a>
+  <a href="tel:0262630956" class="fab-tel" aria-label="電話">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+  </a>
+  <a href="https://www.facebook.com/WatsonCAUL#" target="_blank" rel="noreferrer" class="fab-fb" aria-label="Facebook">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+    </svg>
+  </a>
 </div>
 
 <!-- ══ JAVASCRIPT ══ -->
