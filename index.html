@@ -51,7 +51,17 @@ body {
   -webkit-font-smoothing: antialiased;
   cursor: none;
 }
-img { display: block; max-width: 100%; }
+img {
+  display: block; max-width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+/* 允許點擊的圖片連結恢復 pointer-events */
+a img, button img, .g-item img, .cine-media img,
+.fullbleed img, .hero-img, .concept-bg { pointer-events: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
@@ -777,7 +787,7 @@ footer {
 
 <!-- ══ LOADER ══ -->
 <div id="loader">
-  <img src="./images/logo-white.png" alt="森安邦" style="height:72px;width:auto;margin-bottom:0.2rem">
+  <img src="./images/logo-white.png" alt="森安邦" style="height:72px;width:auto;max-width:360px;object-fit:contain;margin-bottom:0.2rem">
   <div class="loader-track"><div class="loader-fill" id="loader-fill"></div></div>
   <p class="loader-num" id="loader-num">000</p>
 </div>
@@ -786,7 +796,7 @@ footer {
 <nav id="nav">
   <div class="nav-logo">
     <a href="#top">
-      <img src="./images/logo-gold.png" alt="森安邦" style="height:32px;width:auto;max-width:160px;display:block">
+      <img src="./images/logo-gold.png" alt="森安邦" style="height:32px;width:auto;max-width:160px;display:block;object-fit:contain;flex-shrink:0">
     </a>
   </div>
   <ul class="nav-links">
@@ -826,7 +836,7 @@ footer {
     </div>
     <div class="hero-content">
       <span class="hero-eyebrow">台南市南區 · 精品集合住宅 · 2024 年使照取得</span>
-      <img src="./images/logo-white.png" alt="森安邦" class="hero-title" style="height:clamp(60px,8vw,120px);width:auto;max-width:min(600px,70vw);display:block;filter:drop-shadow(0 2px 24px rgba(0,0,0,0.4))">
+      <img src="./images/logo-white.png" alt="森安邦" class="hero-title" style="height:clamp(55px,7vw,110px);width:auto;max-width:clamp(280px,45vw,520px);display:block;object-fit:contain;filter:drop-shadow(0 2px 24px rgba(0,0,0,0.4))">
       <span class="hero-rule"></span>
       <span class="hero-tagline">在城市與生活之間，<br>留下剛剛好的安靜。</span>
       <span class="hero-address">台南市南區中華西路一段48號</span>
@@ -1165,7 +1175,7 @@ footer {
 
         <tr>
           <td>使用執照</td>
-          <td><strong>2024年07月14日</strong>取得</td>
+          <td><strong>2024年07月</strong>取得</td>
         </tr>
       </table>
     </div>
@@ -1406,7 +1416,10 @@ footer {
   </div>
   <div class="cta-content reveal">
     <div class="section-label" style="justify-content:center">Reservation</div>
-    <h2 class="cta-title">預約賞屋<br>感受真正的<br>生活尺度</h2>
+    <h2 class="cta-title">
+  預約賞屋
+  <span style="display:block;font-size:0.6em;letter-spacing:0.08em;margin-top:0.3em;color:var(--stone)">感受真正的生活尺度</span>
+</h2>
     <p class="cta-sub">
       從建築、空間、採光到動線，<br>
       親自走進森安邦，感受安靜而純粹的居住氛圍。
@@ -1449,7 +1462,7 @@ footer {
   <div class="footer-gold-line"></div>
   <div class="footer-inner">
     <div>
-      <img src="./images/logo-white.png" alt="森安邦" style="height:52px;width:auto;display:block;margin-bottom:1.2rem;opacity:0.9">
+      <img src="./images/logo-white.png" alt="森安邦" style="height:52px;width:auto;max-width:280px;object-fit:contain;display:block;margin-bottom:1.2rem;opacity:0.9">
       <p class="footer-desc">
         現代極簡建築　靜奢生活尺度<br>
         讓安定感成為一種居住的選擇<br><br>
@@ -1477,15 +1490,15 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2024 森安邦</p>
-    <p class="footer-license">使用執照：2024-07-14 取得</p>
+    <p class="footer-copy">© 2024 森安邦｜華森建業　版權所有，翻印必究</p>
+    <p class="footer-license">本網站所有圖文內容均受著作權法保護，未經授權不得轉載或使用</p>
   </div>
 </footer>
 
 <!-- ══ FLOATING ACTION BUTTONS ══ -->
 <div class="fab">
   <a href="https://line.me/ti/p/@205btexa" target="_blank" class="fab-line" aria-label="LINE諮詢">LINE</a>
-  <a href="tel:0626630956" class="fab-tel" aria-label="電話">
+  <a href="tel:062630956" class="fab-tel" aria-label="電話">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
     </svg>
@@ -1499,6 +1512,27 @@ footer {
 
 <!-- ══ JAVASCRIPT ══ -->
 <script>
+// ── 禁止右鍵與圖片拖曳 ──────────────
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  return false;
+});
+document.addEventListener('dragstart', function(e) {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+document.querySelectorAll('img').forEach(function(img) {
+  img.setAttribute('draggable', 'false');
+  img.style.webkitUserSelect = 'none';
+  img.style.userSelect = 'none';
+  img.style.pointerEvents = 'none';
+});
+// 圖片載入後也套用
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    img.setAttribute('draggable', 'false');
+    img.style.pointerEvents = 'none';
+  });
+});
 // ── Loader ────────────────────────────
 (function(){
   const fill = document.getElementById('loader-fill');
