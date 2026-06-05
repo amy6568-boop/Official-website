@@ -975,8 +975,11 @@ footer {
   <img src="./images/building-day.jpg" alt="森安邦正面日景">
   <div class="fullbleed-caption">
     <div>
-      <div class="section-label">Architecture · Night View</div>
-      <h3 class="h-display" style="max-width:500px">在城市天際線中<br>安靜存在</h3>
+      <div class="section-label">Architecture · Day View</div>
+      <h3 class="h-display" style="max-width:500px">城市之中</h3>
+      <p class="body-text" style="margin-top:1.5rem;max-width:320px;line-height:2.8">
+        沐浴晨光<br>擁抱微風<br>留住生活本色
+      </p>
     </div>
   </div>
 </div>
@@ -986,8 +989,11 @@ footer {
   <img src="./images/building-night.jpg" alt="森安邦正面夜景">
   <div class="fullbleed-caption">
     <div>
-      <div class="section-label">Night View</div>
-      <h3 class="h-display" style="max-width:500px">燈光亮起<br>城市中安靜的存在</h3>
+      <div class="section-label">Architecture · Night View</div>
+      <h3 class="h-display" style="max-width:500px">暮色之後</h3>
+      <p class="body-text" style="margin-top:1.5rem;max-width:320px;line-height:2.8">
+        萬家燈火<br>溫暖相映<br>回家成為期待
+      </p>
     </div>
   </div>
 </div>
@@ -1023,7 +1029,7 @@ footer {
     <span class="cine-idx">03</span>
     <div class="section-label">Grand Lobby</div>
     <h3 class="h-display">交誼<br>大廳</h3>
-    <p class="body-text">木質暖牆、石材檯面與柔和燈光，<br>建立每一次回家的儀式感。</p>
+    <p class="body-text">卸下忙碌與奔波，<br>讓生活從踏入大廳的那一刻，<br>慢慢回到自己的節奏。</p>
   </div>
 </div>
 <div class="cine-row reveal">
@@ -1252,7 +1258,7 @@ footer {
     <span class="cine-idx">01</span>
     <div class="section-label">Living Room</div>
     <h3 class="h-display">客廳</h3>
-    <p class="body-text">石材電視牆、低彩度選材，<br>雙面自然採光，回歸居住的本質。</p>
+    <p class="body-text">陽光、笑聲與陪伴，<br>在這裡匯聚成最珍貴的日常。</p>
   </div>
 </div>
 <div class="cine-row rev reveal">
@@ -1263,7 +1269,7 @@ footer {
     <span class="cine-idx">02</span>
     <div class="section-label">Master Bedroom</div>
     <h3 class="h-display">主臥</h3>
-    <p class="body-text">軟包床頭牆、間接照明與附設衛浴，<br>讓每一個夜晚都是奢侈的休憩。</p>
+    <p class="body-text">在安靜與舒適之間，<br>找到專屬於自己的生活步調。</p>
   </div>
 </div>
 
@@ -1275,7 +1281,7 @@ footer {
     <span class="cine-idx">03</span>
     <div class="section-label">Dining & Kitchen</div>
     <h3 class="h-display">廚房<br>餐廳</h3>
-    <p class="body-text">石英石中島餐桌、系統廚具與天然氣爐，<br>讓每一頓飯都是家的味道。</p>
+    <p class="body-text">從備餐到共享，<br>讓每一次相聚都值得期待。</p>
   </div>
 </div>
 <div class="cine-row rev reveal">
@@ -1286,7 +1292,7 @@ footer {
     <span class="cine-idx">04</span>
     <div class="section-label">Second Bedroom</div>
     <h3 class="h-display">次臥</h3>
-    <p class="body-text">木質架高床台、整合書桌與收納，<br>小空間也能擁有充足機能與溫度。</p>
+    <p class="body-text">保留彈性與想像，<br>讓空間隨著人生一起成長。</p>
   </div>
 </div>
 <div class="cine-row reveal">
@@ -1302,66 +1308,7 @@ footer {
 </div>
 
 <!-- ══ FLOOR PLAN ══ -->
-<section id="floorplan" style="background:var(--mid)">
-  <div style="max-width:1380px;margin:0 auto;padding:14vh 5vw">
-    <div class="reveal" style="margin-bottom:4rem">
-      <div class="section-label">Floor Plan</div>
-      <h2 class="h-display">平面配置圖</h2>
-    </div>
-    <!-- Tab Switcher -->
-    <div class="fp-tabs reveal d1" style="display:flex;gap:0;margin-bottom:3rem;border:1px solid var(--border);width:fit-content">
-      <button class="fp-tab active" onclick="switchFP(0)" id="tab0"
-        style="padding:0.85rem 2.2rem;background:var(--gold);color:var(--black);border:none;
-               font-size:0.68rem;letter-spacing:0.28em;cursor:pointer;transition:all 0.3s">
-        1 樓大廳配置
-      </button>
-      <button class="fp-tab" onclick="switchFP(1)" id="tab1"
-        style="padding:0.85rem 2.2rem;background:transparent;color:var(--stone);border:none;
-               font-size:0.68rem;letter-spacing:0.28em;cursor:pointer;transition:all 0.3s">
-        3 ~ 14 樓標準層
-      </button>
-    </div>
-    <!-- Plan panels -->
-    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:5vw;align-items:start">
-      <div class="reveal d1">
-        <p class="body-text" id="fp-desc" style="margin-bottom:2rem">
-          精心規劃的一樓大廳、車道動線與景觀配置，<br>
-          讓進出之間充滿儀式感。
-        </p>
-        <div style="border-left:1px solid var(--border);padding-left:1.5rem;display:flex;flex-direction:column;gap:1rem">
-<div id="fp-info-0"></div>
-<div id="fp-info-1" style="display:none"></div>
-        </div>
-      </div>
-      <div class="fp-img-wrap reveal d2" style="transition:opacity 0.5s">
-        <img id="fp-img" src="./images/floor-plan-1f.png" alt="平面配置圖" loading="lazy" style="width:100%">
-      </div>
-    </div>
-  </div>
-  <script>
-  var fpImages = ['./images/floor-plan-1f.png','./images/floor-plan-std.png'];
-  var fpDescs  = [
-    '精心規劃的一樓大廳、車道動線與景觀配置，<br>讓進出之間充滿儀式感。',
-    '每層四戶坐落四角，雙面開窗，<br>採光與通風是每日生活的底色。'
-  ];
-  function switchFP(idx){
-    document.getElementById('fp-img').style.opacity='0';
-    setTimeout(function(){
-      document.getElementById('fp-img').src = fpImages[idx];
-      document.getElementById('fp-desc').innerHTML = fpDescs[idx];
-      document.getElementById('fp-info-0').style.display = idx===0?'block':'none';
-      document.getElementById('fp-info-1').style.display = idx===1?'block':'none';
-      document.getElementById('fp-img').style.opacity='1';
-    },300);
-    [0,1].forEach(function(i){
-      var t=document.getElementById('tab'+i);
-      t.style.background   = i===idx ? 'var(--gold)' : 'transparent';
-      t.style.color        = i===idx ? 'var(--black)': 'var(--stone)';
-    });
-  }
-  document.getElementById('fp-img').style.transition='opacity 0.4s';
-  </script>
-</section>
+
 
 <!-- ══ FEATURES ══ -->
 <section id="features">
@@ -1471,7 +1418,7 @@ footer {
       </p>
       <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
         <p style="font-size:0.58rem;letter-spacing:0.3em;color:var(--muted);margin-bottom:0.8rem">DEVELOPER</p>
-        <img src="./images/company-logo.png" alt="華森建業" style="height:36px;width:auto;max-width:220px;object-fit:contain;opacity:0.75;display:block">
+        <img src="./images/company-logo.png" alt="華森建業" style="height:48px;width:auto;max-width:280px;object-fit:contain;opacity:1;display:block;filter:brightness(1.2)">
       </div>
     </div>
     <div>
