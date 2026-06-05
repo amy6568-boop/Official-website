@@ -7,12 +7,19 @@
 <meta name="description" content="森安邦，台南市南區中華西路一段48號，全棟15層精品集合住宅，全戶型3房2廳，雙面開窗，一戶一車位。">
 <meta name="application-name" content="森安邦">
 <meta name="apple-mobile-web-app-title" content="森安邦">
+<link rel="canonical" href="https://amy6568-boop.github.io/Official-website/">
 <meta property="og:title" content="森安邦">
+<meta property="og:url" content="https://amy6568-boop.github.io/Official-website/">
+<meta property="og:image" content="https://amy6568-boop.github.io/Official-website/images/hero-night.jpg">
+<meta name="robots" content="index, follow">
 <meta property="og:description" content="台南市南區精品集合住宅，3房2廳2衛2陽台，雙面開窗，一戶一車位。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:title" content="森安邦">
 <meta name="twitter:description" content="台南市南區精品集合住宅">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400&family=Didact+Gothic&display=swap" rel="stylesheet">
@@ -58,6 +65,13 @@ img {
   user-select: none;
   -webkit-touch-callout: none;
   pointer-events: none;
+}
+/* 全站文字禁止選取 */
+body, p, h1, h2, h3, h4, h5, span, div, a, li, td, blockquote {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 /* 允許點擊的圖片連結恢復 pointer-events */
 a img, button img, .g-item img, .cine-media img,
@@ -720,8 +734,8 @@ footer {
   flex-wrap: wrap; gap: 0.8rem;
 }
 .footer-copy {
-  font-size: 0.65rem; color: var(--muted);
-  letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 1.1rem; color: var(--muted);
+  letter-spacing: 0.15em;
 }
 .footer-license {
   font-size: 0.65rem; color: var(--border);
