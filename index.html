@@ -1474,6 +1474,16 @@ footer {
       <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
     </svg>
   </a>
+  <button class="bgm-btn" id="bgmBtn" aria-label="背景音樂">
+    <div class="bgm-bars" id="bgmBars">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <svg class="bgm-muted-icon" id="bgmMutedIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#706d62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
 </div>
 
 <!-- ══ JAVASCRIPT ══ -->
@@ -1570,5 +1580,125 @@ if ('ontouchstart' in window) {
   document.body.style.cursor = 'auto';
 }
 </script>
+
+<!-- ══ 背景音樂 ══ -->
+<audio id="bgm" loop preload="auto" muted>
+  <source src="./audio/bgm.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ══ 音樂控制按鈕 ══ -->
+<style>
+  .bgm-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(20, 20, 18, 0.85);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    transition: border-color 0.3s, transform 0.3s var(--ease-out);
+  }
+  .bgm-btn:hover {
+    border-color: var(--gold);
+    transform: scale(1.08);
+  }
+  .bgm-btn svg {
+    display: block;
+    transition: opacity 0.3s;
+  }
+  /* 音波動畫（播放中） */
+  .bgm-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2.5px;
+    height: 18px;
+  }
+  .bgm-bars span {
+    display: block;
+    width: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    transform-origin: bottom;
+  }
+  .bgm-bars span:nth-child(1) { height: 8px;  animation: barPulse 0.9s ease-in-out infinite; }
+  .bgm-bars span:nth-child(2) { height: 14px; animation: barPulse 0.9s ease-in-out 0.15s infinite; }
+  .bgm-bars span:nth-child(3) { height: 10px; animation: barPulse 0.9s ease-in-out 0.3s infinite; }
+  .bgm-bars span:nth-child(4) { height: 16px; animation: barPulse 0.9s ease-in-out 0.45s infinite; }
+  .bgm-bars span:nth-child(5) { height: 7px;  animation: barPulse 0.9s ease-in-out 0.6s infinite; }
+  @keyframes barPulse {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+    50%       { transform: scaleY(1);   opacity: 1; }
+  }
+  /* 靜音圖示 */
+  .bgm-muted-icon { display: none; }
+  .bgm-bars.paused span { animation-play-state: paused; opacity: 0.3; }
+</style>
+
+
+
+<script>
+(function() {
+  var audio   = document.getElementById('bgm');
+  var btn     = document.getElementById('bgmBtn');
+  var bars    = document.getElementById('bgmBars');
+  var muteIcon = document.getElementById('bgmMutedIcon');
+  var playing = false;
+
+  // 第一次使用者互動後自動播放
+  function tryPlay() {
+    if (!playing) {
+      audio.muted = false;
+      audio.play().then(function() {
+        playing = true;
+        updateUI();
+      }).catch(function() {});
+    }
+    document.removeEventListener('click', tryPlay);
+    document.removeEventListener('scroll', tryPlay);
+    document.removeEventListener('touchstart', tryPlay);
+  }
+
+  document.addEventListener('click', tryPlay, { once: true });
+  document.addEventListener('scroll', tryPlay, { once: true, passive: true });
+  document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+
+  function updateUI() {
+    if (playing) {
+      bars.style.display = 'flex';
+      muteIcon.style.display = 'none';
+      bars.classList.remove('paused');
+    } else {
+      bars.classList.add('paused');
+      setTimeout(function() {
+        bars.style.display = 'none';
+        muteIcon.style.display = 'block';
+      }, 300);
+    }
+  }
+
+  // 點擊按鈕切換播放/暫停
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (playing) {
+      audio.pause();
+      playing = false;
+    } else {
+      audio.muted = false;
+      audio.play().then(function() { playing = true; updateUI(); });
+    }
+    updateUI();
+  });
+
+  // 初始狀態：靜音圖示
+  bars.style.display = 'none';
+  muteIcon.style.display = 'block';
+})();
+</script>
+
 </body>
 </html>
