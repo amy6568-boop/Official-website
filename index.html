@@ -1395,11 +1395,23 @@ footer {
     <h2 class="h-display">城市與生活<br>保持剛剛好的距離</h2>
   </div>
   <!-- 電影排版：左圖右文 -->
-  <div style="display:grid;grid-template-columns:1.2fr 0.8fr;min-height:60vh" class="reveal">
+  <div style="display:grid;grid-template-columns:1.2fr 0.8fr;min-height:60vh" class="reveal location-grid-rwd">
+  <style>
+    @media (max-width: 768px) {
+      .location-grid-rwd {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+      }
+      .location-grid-rwd > div:first-child {
+        min-height: 280px;
+        aspect-ratio: 4/3;
+      }
+    }
+  </style>
     <!-- 左：全圖 -->
-    <div style="overflow:hidden;position:relative;min-height:420px">
+    <div style="overflow:hidden;position:relative;min-height:420px;aspect-ratio:2123/2014">
       <img src="./images/location-map.jpg" alt="森安邦周邊地圖" loading="lazy"
-        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.9)">
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;background:#e8dfc8">
     </div>
     <!-- 右：說明文字 -->
     <div style="background:var(--dark);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:clamp(2.5rem,5vw,6rem);gap:2rem">
@@ -1648,24 +1660,7 @@ if ('ontouchstart' in window) {
   var bars    = document.getElementById('bgmBars');
   var muteIcon = document.getElementById('bgmMutedIcon');
   var playing = false;
-
-  // 第一次使用者互動後自動播放
-  function tryPlay() {
-    if (!playing) {
-      audio.muted = false;
-      audio.play().then(function() {
-        playing = true;
-        updateUI();
-      }).catch(function() {});
-    }
-    document.removeEventListener('click', tryPlay);
-    document.removeEventListener('scroll', tryPlay);
-    document.removeEventListener('touchstart', tryPlay);
-  }
-
-  document.addEventListener('click', tryPlay, { once: true });
-  document.addEventListener('scroll', tryPlay, { once: true, passive: true });
-  document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+  var started = false;
 
   function updateUI() {
     if (playing) {
@@ -1681,18 +1676,44 @@ if ('ontouchstart' in window) {
     }
   }
 
-  // 點擊按鈕切換播放/暫停
+  // 點擊按鈕：切換播放/暫停
   btn.addEventListener('click', function(e) {
     e.stopPropagation();
-    if (playing) {
+    e.preventDefault();
+    if (!started) {
+      // 第一次點擊：開始播放
+      started = true;
+      audio.muted = false;
+      audio.play().then(function() {
+        playing = true;
+        updateUI();
+      }).catch(function() {});
+    } else if (playing) {
       audio.pause();
       playing = false;
+      updateUI();
     } else {
       audio.muted = false;
-      audio.play().then(function() { playing = true; updateUI(); });
+      audio.play().then(function() {
+        playing = true;
+        updateUI();
+      }).catch(function() {});
     }
-    updateUI();
   });
+
+  // 滾動時自動開始播放（不影響按鈕狀態）
+  function tryAutoPlay() {
+    if (!started) {
+      started = true;
+      audio.muted = false;
+      audio.play().then(function() {
+        playing = true;
+        updateUI();
+      }).catch(function() {});
+    }
+  }
+  document.addEventListener('scroll', tryAutoPlay, { once: true, passive: true });
+  document.addEventListener('touchstart', tryAutoPlay, { once: true, passive: true });
 
   // 初始狀態：靜音圖示
   bars.style.display = 'none';
