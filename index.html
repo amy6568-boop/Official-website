@@ -50,7 +50,12 @@
    RESET & BASE
 ═══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   background: var(--black);
   color: var(--white);
@@ -1492,8 +1497,9 @@ footer {
 <!-- ══ FLOATING ACTION BUTTONS ══ -->
 <div class="fab">
   <a href="https://line.me/ti/p/@205btexa" target="_blank" rel="noreferrer" class="fab-line" aria-label="LINE諮詢">
-    <svg width="26" height="26" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 4C13.02 4 4 11.84 4 21.5c0 6.12 3.64 11.5 9.16 14.72-.4 1.5-1.44 5.42-1.64 6.26-.26 1.02.38 1.02.78.74.32-.22 5.1-3.46 7.18-4.86.74.1 1.5.14 2.28.14 10.98 0 20-7.84 20-17.5S34.98 4 24 4z"/>
+    <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M50 12C29.0 12 12 26.3 12 44c0 9.6 5.2 18.2 13.5 23.8L23.4 80c-.3 1 .6 1 1.1.6L38 72.7c3.8.8 7.9 1.3 12 1.3 21.0 0 38-14.3 38-32S71.0 12 50 12z"/>
+      <text x="50" y="42" text-anchor="middle" dominant-baseline="central" font-family="Arial Black,Helvetica,sans-serif" font-weight="900" font-size="21" fill="#06C755" letter-spacing="0.5">LINE</text>
     </svg>
   </a>
   <a href="tel:062630956" class="fab-tel" aria-label="電話">
