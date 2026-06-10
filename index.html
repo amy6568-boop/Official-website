@@ -759,6 +759,13 @@ footer {
   flex-direction: column;
   gap: 0.6rem;
 }
+/* 手機版：改用 left 定位避免 overflow-x bug */
+@media (max-width: 960px) {
+  .fab {
+    right: auto;
+    left: calc(100vw - 60px);
+  }
+}
 .fab a {
   width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
